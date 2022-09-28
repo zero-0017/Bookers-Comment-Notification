@@ -24,6 +24,11 @@
             <% end %>
           </li>
           <li>
+            <%=  link_to notifications_path ,class: 'nav-link text-light' do %>
+              <i class="fas fa-book-open"></i> notifications
+            <% end %>
+          </li>
+          <li>
             <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
               <i class="fas fa-sign-out-alt"></i> logout
             <% end %>

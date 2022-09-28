@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :books
   has_many :comments, dependent: :destroy
 
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+
   has_one_attached :profile_image
 
 validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true

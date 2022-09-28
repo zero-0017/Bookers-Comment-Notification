@@ -1,0 +1,12 @@
+<h1>通知一覧</h1>
+<div class="common-contents">
+  <div class="book">
+    <% if @notifications.exists? %>
+    <ul class="allnotifications-list">
+      <%= render @notifications %>
+    </ul>
+    <% else %>
+    <p class="allnotifications-no">通知はありません</p>
+    <% end %>
+  </div>
+</div>

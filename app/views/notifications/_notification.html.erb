@@ -1,0 +1,10 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+<li>
+  <% case notification.action %>
+  <% when 'book' then %>
+    <h2>【運営より】<%= notification.book.title %></h2>
+    <p><%= safe_join(notification.book.body.split("\n"), tag(:br)) %></p>
+  <% end %>
+  <!--<p class="n-time">%= time_ago_in_words(notification.created_at).upcase %>前（%= notification.set_created %>）</p>-->
+</li>
