@@ -3,8 +3,11 @@ class CommentsController < ApplicationController
     book = Book.find(params[:book_id])
     comment = current_user.comments.new(comment_params)
     comment.book_id = book.id
-    comment.save
+    comment.user_id = current_user.id
+  if comment.save
+      book.create_notification_comment!(current_user, comment.id)
     redirect_to request.referer
+  end
   end
 
   def destroy
